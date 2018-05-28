@@ -65,7 +65,7 @@ public class MyCacheServiceImplTest {
         int readsLimit = 33;
         service = new MyCacheServiceImpl(readsLimit, new ClassPathResource("\\kvs.txt"));
 
-        int threadsCount = readsLimit * 3; // this means that cache will reload three times, as we mocked Files.lines in init()
+        int threadsCount = readsLimit * 3; // this means that cache will reload two times, as we mocked Files.lines in init()
         int maxTimeoutSeconds = 60;
         ExecutorService threadPool = Executors.newFixedThreadPool(threadsCount);
         List<String> values = new CopyOnWriteArrayList<>(); // did'n bother with optimization here
